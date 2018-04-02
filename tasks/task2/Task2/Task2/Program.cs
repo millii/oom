@@ -27,12 +27,12 @@ namespace Task2
         public void speedup(int increase)
         {
             speed = speed + increase;
-            
+
         }
         public void changegear(int newvalue)
         {
             gear = newvalue;
-       
+
         }
 
         public void printinfo()
@@ -44,7 +44,7 @@ namespace Task2
 
         }
         public string newname { get; private set; }
-        public string newtype { get; private set; } 
+        public string newtype { get; private set; }
     }
     class Program
     {
