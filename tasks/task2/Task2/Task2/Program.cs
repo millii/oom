@@ -10,19 +10,29 @@ namespace Task2
     {
         public int speed;
         public int gear;
-        private string name, type;
+        private int m_production_year;
 
 
         public Bicycle(string newname, string newtype)
         {
-            if (string.IsNullOrEmpty(newname)) throw new ArgumentOutOfRangeException("name must not be empty or null. ");
+            if (string.IsNullOrEmpty(newname)) throw new ArgumentOutOfRangeException("name must not be empty or null.");
             if (string.IsNullOrEmpty(newtype)) throw new ArgumentOutOfRangeException("type must not be empty or null.");
 
             name = newname;
             type = newtype;
         }
 
-
+        public int producyear
+        {
+            get
+            {
+                return m_production_year;
+            }
+            set
+            {
+                m_production_year = value;
+            }
+        }
 
         public void speedup(int increase)
         {
@@ -40,11 +50,11 @@ namespace Task2
             Console.WriteLine($"Name: {name}, Type: {type}");
             Console.WriteLine("Gear: {0}", gear);
             Console.WriteLine("Speed: {0}", speed);
-
-
+            Console.WriteLine("year of construction : {0}", m_production_year);
+            Console.WriteLine("------------------------------################################################------------------------------");
         }
-        public string newname { get; private set; }
-        public string newtype { get; private set; }
+        public string name { get; private set; }
+        public string type { get; private set; }
     }
     class Program
     {
@@ -52,10 +62,13 @@ namespace Task2
         {
             Bicycle bicycle1 = new Bicycle("cube", "crossbike");
             Bicycle bicycle2 = new Bicycle("scott", "racer");
+
+            bicycle1.producyear = 2018;
             bicycle1.gear = 1;
             bicycle1.speed = 0;
             bicycle1.printinfo();
 
+            bicycle2.producyear = 2017;
             bicycle2.gear = 5;
             bicycle2.speed = 10;
             bicycle2.printinfo();
